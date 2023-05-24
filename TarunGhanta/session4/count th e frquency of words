@@ -1,0 +1,27 @@
+import re
+from collections import Counter
+
+def count_word_frequency(sentences):
+    word_frequency = {}
+    for sentence in sentences:
+        # Convert the sentence to lowercase and split into words
+        words = sentence.lower().split()
+        for word in words:
+            # Remove punctuation from the word
+            word = word.strip('.,!?')
+            # Update the word frequency count
+            if word in word_frequency:
+                word_frequency[word] += 1
+            else:
+                word_frequency[word] = 1
+    
+    return word_frequency
+
+# Example usage
+sentences = [
+    "I love to eat pizza.",
+    "Pizza is my favorite food.",
+    "I can eat pizza every day!."
+]
+frequency = count_word_frequency(sentences)
+print(frequency)
