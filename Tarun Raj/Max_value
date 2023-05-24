@@ -1,0 +1,15 @@
+# Dictionary
+my_dict = {'a': 3, 'b': 6, 'c': 9, 'f': 12}
+
+# Define a function that takes a dictionary as input and returns the key with the maximum value
+def max_key(dictionary):
+    max_value = max(dictionary.values())
+    max_keys = [key for key, value in dictionary.items() if value == max_value]
+    return max_keys
+
+# Call the function with the given dictionary and assign the returned key(s) to max_keys
+max_keys = max_key(my_dict)
+
+# Print the max_keys to the console
+for key in max_keys:
+    print(key)
