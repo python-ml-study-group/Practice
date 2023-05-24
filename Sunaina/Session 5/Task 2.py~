@@ -1,5 +1,5 @@
 """For the provided example, create 
-a new class ¿Director¿, whose 
+a new class “Director”, whose 
 bonus calculation is same as 
 manager"""
 
@@ -33,5 +33,4 @@ director1 = Director("Dale", 100000, "Operations")
 print(f"Employee: {employee1.name}, Bonus: ${employee1.calculate_bonus()}")
 print(f"Manager: {manager1.name}, Department: {manager1.department}, Bonus: ${manager1.calculate_bonus()}")
 print(f"Director: {director1.name}, Department: {director1.department}, Bonus: ${director1.calculate_bonus()}")
-
 
