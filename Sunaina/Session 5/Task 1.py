@@ -18,3 +18,4 @@ print(f"Employee: {employee1.name}, Salary: ${employee1.salary}") # Print the na
 
 employee1.update_salary(60000) # Update the salary of the employee
 print(f"Employee: {employee1.name}, Updated Salary: ${employee1.salary}") # Print the name and updated salary of the employee
+

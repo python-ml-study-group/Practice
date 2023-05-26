@@ -30,4 +30,3 @@ print("Original list (deep copy):", original_list)
 
 # Print the deep_copy to the console
 print("Deep copy:", deep_copy)
-
