@@ -1,0 +1,26 @@
+def remove_duplicates(lst):
+    # Create a set to store unique strings
+    unique_strings = set()
+
+    # Create a set to store sorted strings
+    sorted_strings = set()
+
+    # Iterate over each string in the input list
+    for string in lst:
+        # Sort the characters of the string in ascending order
+        sorted_string = ''.join(sorted(string))
+
+        # Check if the sorted string is already encountered
+        if sorted_string not in sorted_strings:
+            # Add the original string to the unique strings set
+            unique_strings.add(string)
+            
+            # Add the sorted string to the sorted strings set
+            sorted_strings.add(sorted_string)
+
+    return unique_strings
+
+
+input_list = ['abc', 'dire', 'cab', 'this', 'his']
+result = remove_duplicates(input_list)
+print(result)
