@@ -1,4 +1,5 @@
-def input_validation():
+from expense import Expense
+def input_():
     while True:
         try:
             amount = int(input("Enter the expense amount: "))
