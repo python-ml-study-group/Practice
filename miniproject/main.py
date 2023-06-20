@@ -1,5 +1,5 @@
 from expense import Expense
-def input():
+def input_validation():
     pass
 
 def calcualte():
