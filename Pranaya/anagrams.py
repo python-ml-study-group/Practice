@@ -11,7 +11,7 @@ def remove_duplicate_anagrams(strings):
     
     return unique_strings
 
-# Example usage
+
 input_list = ['abc', 'dire', 'cab', 'this', 'his']
 result = remove_duplicate_anagrams(input_list)
 print(result)
