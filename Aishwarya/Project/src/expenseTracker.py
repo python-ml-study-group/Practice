@@ -18,18 +18,19 @@ class Expenses:
             print(expense.category)
 
     def summary(self):
-        for expense in self.expenseList:
-            totalExpense+=expense.amount
+        try:
 
-        averageExpense=totalExpense/len(self.expenseList)
+            l1=[expense.amount for expense in self.expenseList]
+            averageExpense=sum(l1)/len(self.expenseList)*100
+            maxExpense=max(l1)   
+            minExpense=min(l1)
+            print("AverageExpense: ",averageExpense)
+            print("Maximum Expense: ",maxExpense) 
+            print("Minimum Expense: ",minExpense)
+            return averageExpense,maxExpense,minExpense
 
-        maxExpense=max(self.expenseList)   
-        minExpense=min(self.expenseList)
-
-        print("total Amount: ",totalExpense)
-        print("AverageExpense: ",averageExpense)
-        print("Maximum Expense: ",maxExpense) 
-        print("Minimum Expense: ",minExpense)
+        except ZeroDivisionError as e:
+            print("Select atleast one item")
 
 
 def main():
