@@ -28,15 +28,17 @@ def add_features (  df):
 
     # check if the the price has touched the upper bollinger band in the last 5 days
     df['Touched_UBB'] = df['High'].rolling(5).max() >= df['UBB']
+    df['Touched_LBB'] = df['Low'].rolling(5).min() <= df['LBB']
 
 
-
-def test():
-    df = get_data('TSLA', '2023-01-01', '2023-12-31')
+def prepare_df():
+    df = get_data('TSLA', '2022-01-01', '2023-12-31')
     enrich(df)
     df = cleanup(df)
     add_features(df)
+    df['label'] = 1
+    return df
     print(df.head())
 
 if __name__ == '__main__':
-    test()
+    prepare_df()
