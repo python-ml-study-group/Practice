@@ -10,6 +10,9 @@ def cleanup(df):
     df = df.round(2)
     return df
 
+def test(df):
+    pass
+
 def enrich(df):
     # Add moving average
     df['MA_20'] = df['Close'].rolling(20).mean()
@@ -23,17 +26,31 @@ def add_features (  df):
     # Check if short term is up
     # Check if short term is down
     # Check if current value of  MA_20 is more than its prev value 
-    df['ST_up'] = df['MA_20'] > df['MA_20'].shift(1)
-    df['ST_down'] = df['MA_20'] < df['MA_20'].shift(1)
+    df['st_up'] = df['MA_20'] > df['MA_20'].shift(1)
+    df['st_down'] = df['MA_20'] < df['MA_20'].shift(1)
 
-    # check if the the price has touched the upper bollinger band in the last 5 days
-    df['Touched_UBB'] = df['High'].rolling(5).max() >= df['UBB']
-    df['Touched_LBB'] = df['Low'].rolling(5).min() <= df['LBB']
+
+
+    # Check if the price has touched the upper bollinger band in the last 10 days
+    df['prev_ubb_10'] = df['High'].rolling(10).max() >= df['UBB']
+    # Check if the price has touched the lower bollinger band in the last 10 days
+    df['prev_lbb_10'] = df['Low'].rolling(10).min() <= df['LBB']
+    
+    # check if the the price has touched the upper bollinger band in the next 5 days
+    df['next_ubb_5'] = df['High'].shift(-5).rolling(5).max() >= df['UBB'].shift(-5)
+    # check if the the price has touched the lower bollinger band in the next 5 days
+    df['next_lbb_5'] = df['Low'].shift(-5).rolling(5).min() <= df['LBB'].shift(-5)
+
+
+
+    print (df)
 
 
 def prepare_df():
-    df = get_data('TSLA', '2022-01-01', '2023-12-31')
+    df = get_data('TSLA', '2022-08-01', '2023-12-31')
+    test(df)
     enrich(df)
+
     df = cleanup(df)
     add_features(df)
     df['label'] = 1
