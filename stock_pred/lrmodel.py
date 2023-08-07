@@ -69,4 +69,8 @@ def get_pred (vals):
 if __name__ == '__main__':
     train_model()
     # test the model with some values
-    val1 = np.array([[1, 0, 0, 0]])
+    val1 = np.array([[0, 1, 1, 0]])
+    pred = get_pred(val1)
+    print ("pred: ", pred)
+
+

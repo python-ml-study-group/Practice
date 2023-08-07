@@ -29,8 +29,6 @@ def add_features (  df):
     df['st_up'] = df['MA_20'] > df['MA_20'].shift(1)
     df['st_down'] = df['MA_20'] < df['MA_20'].shift(1)
 
-
-
     # Check if the price has touched the upper bollinger band in the last 10 days
     df['prev_ubb_10'] = df['High'].rolling(10).max() >= df['UBB']
     # Check if the price has touched the lower bollinger band in the last 10 days
@@ -48,12 +46,10 @@ def add_features (  df):
 
 def prepare_df():
     df = get_data('TSLA', '2022-08-01', '2023-12-31')
-    test(df)
     enrich(df)
 
     df = cleanup(df)
     add_features(df)
-    df['label'] = 1
     return df
     print(df.head())
 
