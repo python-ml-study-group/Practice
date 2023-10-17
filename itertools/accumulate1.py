@@ -19,6 +19,3 @@ print(list(accumulate(transactions, apply_tran)))
 
 # In the last transaction apply_tran did not execute, 
 # it just bounced off the transaction as it resulted in negative balance
-
-
-
