@@ -1,10 +1,12 @@
+
 def dosomething(lst, func):
     for i in lst:
         print(func(i))
 
 l = [1, 2, 3, 4, 5]
 print("Square of each element in the list: ")
-dosomething(l, lambda num: num * num)
+square = lambda num: num * num
+dosomething(l, square)
 
 print("Cube of each element in the list: ")
 dosomething(l, lambda num: num * num * num)
