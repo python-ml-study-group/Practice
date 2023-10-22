@@ -5,3 +5,9 @@
 <body>Don't forget me this weekend!</body>
 </note>
 
+"note": {
+    "to": "Tove",
+    "from": "Jani",
+    "heading": "Reminder",
+    "body": "Don't forget me this weekend!"
+}
