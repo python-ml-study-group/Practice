@@ -1,3 +1,9 @@
+drop table if exists candidate_skillset;
+drop table if exists candidate_certificates;
+drop table if exists candidate;
+drop table if exists certificate;
+drop table if exists skillset;
+ 
 -- Create the candidate table
 CREATE TABLE candidate (
   id INT NOT NULL PRIMARY KEY,
@@ -59,7 +65,7 @@ VALUES (1, 1, '2022-01-01'),
 -- Create the skillset table
 CREATE TABLE skillset (
   id INT NOT NULL PRIMARY KEY,
-  skill_name VARCHAR(50)
+  skill_name VARCHAR(50),
   proficiency_level VARCHAR(30)
 );
 
@@ -79,13 +85,13 @@ CREATE TABLE candidate_skillset (
   skillset_id INT NOT NULL,
   years_experience INT,
   last_used DATE,
-  PRIMARY KEY (candidate_id, skill_id),
+  PRIMARY KEY (candidate_id, skillset_id),
   FOREIGN KEY (candidate_id) REFERENCES candidate(id),
-  FOREIGN KEY (skill_id) REFERENCES skill(id)
+  FOREIGN KEY (skillset_id) REFERENCES skillset(id)
 );
 
 -- Insert some sample data into the candidate_skillset table
-INSERT INTO candidate_certificates (candidate_id, skillset_id, years_experience, last_used)
+INSERT INTO candidate_skillset (candidate_id, skillset_id, years_experience, last_used)
 VALUES (1, 123, 3, '2023-01-16'),
     	 (2, 456, 4, '2022-09-21'),
        (3, 789, 2, '2023-02-03'),
@@ -93,8 +99,3 @@ VALUES (1, 123, 3, '2023-01-16'),
        (5, 546, 3, '2023-03-20'),
        (6, 879, 4, '2022-12-09'),
        (7, 321, 3, '2023-04-25');
-
-
-
-
-
