@@ -6,6 +6,7 @@ customer_data = [
 
 
 
+
 def calculate_invoice_amount(invested_amount, returns_percentage):
     slab1 = min(returns_percentage, 10)
 
