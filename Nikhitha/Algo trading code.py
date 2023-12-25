@@ -22,17 +22,18 @@ class invoice:
 
 
 def calculate_invoice_amount(inv:invoice):
-    inv.slab1 = min(inv.returns_percentage, 10)
-
-    inv.slab2 = max(0, min(inv.returns_percentage, 20) - 10)
-    inv.slab3 = max(0, min(inv.returns_percentage, 30) - 20)
-
-    inv.fee1 = inv.slab1 * 0.0027 * inv.invested_amount
-    inv.fee2 = inv.slab2 * 0.0036 * inv.invested_amount
-    inv.fee3 = inv.slab3 * 0.0045 * inv.invested_amount
-    
-
-    inv.total_fee = inv.fee1 + inv.fee2 + inv.fee3
+    if inv.returns_percentage<3:
+        inv.total_fee=0
+    else:
+        inv.slab1 = min(inv.returns_percentage, 10)
+        inv.slab2 = max(0, min(inv.returns_percentage, 20) - 10)
+        inv.slab3 = max(0, min(inv.returns_percentage, 30) - 20)
+        
+        inv.fee1 = inv.slab1 * 0.0027 * inv.invested_amount
+        inv.fee2 = inv.slab2 * 0.0036 * inv.invested_amount
+        inv.fee3 = inv.slab3 * 0.0045 * inv.invested_amount
+        
+        inv.total_fee = inv.fee1 + inv.fee2 + inv.fee3
     
 
 def display_invoice_details(inv:invoice):
