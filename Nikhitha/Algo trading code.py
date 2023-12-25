@@ -16,6 +16,7 @@ def calculate_invoice_amount(invested_amount, returns_percentage):
     fee1 = slab1 * 0.0027 * invested_amount
     fee2 = slab2 * 0.0036 * invested_amount
     fee3 = slab3 * 0.0045 * invested_amount
+    
 
     total_fee = fee1 + fee2 + fee3
     return total_fee, slab1, fee1, slab2, fee2, slab3, fee3
